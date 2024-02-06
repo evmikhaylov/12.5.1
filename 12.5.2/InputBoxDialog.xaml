@@ -1,0 +1,17 @@
+﻿<Window x:Class="_12._5._2.InputBoxDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        
+        Title="InputBoxDialog" Height="150" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock" Grid.Row="0" Margin="0,0,0,10"/>
+        <TextBox x:Name="inputTextBox" Grid.Row="1" Margin="0,0,0,10"/>
+        <Button Content="OK" Grid.Row="2" IsDefault="True" Click="OkButton_Click"/>
+    </Grid>
+</Window>
