@@ -5,20 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_12._5._3"
         mc:Ignorable="d"
-        Title="MainWindow" MaxHeight="450" MinHeight="450"  MinWidth="800" MaxWidth="800">
+        Title="MainWindow" MaxHeight="450" MinHeight="450"  MinWidth="900" MaxWidth="900">
+    <Window.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
-        <DataGrid x:Name="AccountsDataGrid"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <DataGrid x:Name="AccountsDataGrid"
                   ItemsSource="{Binding Accounts}"
                   AutoGenerateColumns="False"
-                  RowDetailsVisibilityMode="Visible"
-              Margin="10,10,310,10">
+                  RowDetailsVisibilityMode="Visible">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id клиента" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="ФИО клиента" Binding="{Binding FullName}"/>
-            </DataGrid.Columns>
-
-            <DataGrid.RowDetailsTemplate>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding FamilyName}"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding NumberPhone}"/>
+                    <DataGridTextColumn Header="Серия, номер документа" Binding="{Binding SerialNumberDoc}"
+                        Visibility="{Binding Path=DataContext.CanViewSensitiveData, 
+                                        RelativeSource={RelativeSource AncestorType=DataGrid}, 
+                                        Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
                     <DataGrid x:Name="BankAccountsDataGrid" SelectionChanged="BankAccountsDataGrid_SelectionChanged" ItemsSource="{Binding BankAccounts}"  AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -29,19 +42,21 @@
                     </DataGrid>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
-        </DataGrid> 
-        <Button x:Name="AddAccount"
-            Content="Добавить новый счёт"
-            Margin="500,125,10,250" Click="AddBankAccount_Click"/>
-        <Button x:Name="DeleteBankAccount" 
-            Content="Закрыть выбранный счёт"
-            Margin="500,200,10,175" Click="DeleteBankAccount_Click"/>
-        <Button x:Name="Transfer"
-            Content="Переводы"
-            Margin="500,275,10,100" Click="Transfer_Click"/>
-        <Button Content="Добавить нового клиента"
-                Margin="500,50,10,325" Click="AddAccount_Click"/>
-        <Button x:Name="DepositButton" Content="Пополнить" Margin="500,350,150,10" Click="DepositButton_Click"/>
-        <Button x:Name="WithdrawButton" Content="Снять" Margin="660,350,10,10" Click="WithdrawButton_Click"/>
+        </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <ComboBox x:Name="SelectedEmployeeComboBox" SelectionChanged="SelectedEmployeeComboBox_SelectionChanged">
+                <ComboBoxItem>Консультант</ComboBoxItem>
+                <ComboBoxItem>Менеджер</ComboBoxItem>
+            </ComboBox>
+        <Button x:Name="AddBankAccount" Content="Добавить новый счёт" Click="AddBankAccount_Click"/>
+        <Button x:Name="DeleteBankAccount" Content="Закрыть выбранный счёт" Click="DeleteBankAccount_Click"/>
+        <Button x:Name="Transfer" Content = "Переводы" Click="Transfer_Click"/>
+        <Button x:Name="AddAccount" Content="Добавить нового клиента" Click="AddAccount_Click"/>
+            <Button x:Name="ChangeInfoClient" Content="Изменить данные клиента" Click="ChangeInfoClient_Click"/>
+            <Button x:Name="DepositButton" Content="Пополнить" Click="DepositButton_Click"/>
+        <Button x:Name="WithdrawButton" Content="Снять" Click="WithdrawButton_Click"/>
+            
+        </StackPanel>
     </Grid>
 </Window>
