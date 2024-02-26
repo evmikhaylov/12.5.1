@@ -61,9 +61,15 @@
     <Compile Include="AddBankAccountWindow.xaml.cs">
       <DependentUpon>AddBankAccountWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="ChangeInfoClientWindow.xaml.cs">
+      <DependentUpon>ChangeInfoClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="InputBoxDialog.xaml.cs">
       <DependentUpon>InputBoxDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangeLog.cs" />
     <Compile Include="SaveLoadData.cs" />
     <Compile Include="TransferWindow.xaml.cs">
       <DependentUpon>TransferWindow.xaml</DependentUpon>
@@ -73,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddBankAccountWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeInfoClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

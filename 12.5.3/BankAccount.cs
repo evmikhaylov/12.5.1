@@ -16,7 +16,7 @@ namespace _12._5._3
 		private static readonly Random random = new Random();
 		public double Balance { get; private set; }
 		public string BankAccountType { get; private set; }
-		public uint NumberBankAccount { get; private set; }
+		public uint NumberBankAccount { get;  set; }
 		public BankAccount(double balance, string bankAccountType)
 		{
 			Balance=balance;

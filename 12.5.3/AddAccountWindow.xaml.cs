@@ -32,14 +32,21 @@ namespace _12._5._3
 
 		private void OkButtonNewAccount_Click(object sender, RoutedEventArgs e)
 		{
-			string fullName = fullNameTextBox.Text;
+			string familyName = familyNameTextBox.Text;
+			string firstname = firstNameTextBox.Text;
+			string patronymic = patronymicTextBox.Text;
+			string numberPhone = numberPhoneTextBox.Text;
+			string serialDoc = serialDocTextBox.Text;
+			string numberDoc = NumberDocTextBox.Text;
+			string serialNumberDoc = serialDoc + " " + numberDoc;
 			string balanceText = addBalanceTextBox.Text.Replace(",", ".");
 			double balance = double.Parse(balanceText, NumberStyles.Any, CultureInfo.InvariantCulture);
 			string accountType = accountTypeComboBox.SelectedItem.ToString();
 
-			NewAccount = new Account(fullName, new List<BankAccount> { });
+			NewAccount = new Account(familyName, firstname, patronymic, numberPhone, serialNumberDoc, new List<BankAccount> { });
 			BankAccount newBankAccount = _bankAccountFactory.Create(balance, accountType);
 			NewAccount.BankAccounts.Add(newBankAccount);
+			
 
 			this.Close();
 		}

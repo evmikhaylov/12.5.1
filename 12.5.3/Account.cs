@@ -17,13 +17,21 @@ namespace _12._5._3
 	{
 		public BankAccount SelectedBankAccount { get; set; }
 		private static ulong nextId = 1;
-		public string FullName { get; set; }
+		public string FamilyName { get; set; }
+		public string FirstName { get; set; }
+		public string Patronymic { get; set; }
+		public string NumberPhone { get; set; }
+		public string SerialNumberDoc { get; set; }
 		public ulong Id { get; private set; }
-		public List<BankAccount> BankAccounts { get; private set; }
+		public List<BankAccount> BankAccounts { get;  set; }
 
-		public Account (string fullName, List<BankAccount> bankAccounts)
+		public Account (string familyName, string firstName, string patronymic, string numberPhone, string serialNumberDoc, List<BankAccount> bankAccounts)
 		{
-			FullName=fullName;
+			FamilyName = familyName;
+			FirstName = firstName;
+			Patronymic = patronymic;
+			NumberPhone = numberPhone;
+			SerialNumberDoc = serialNumberDoc;
 			Id=nextId++;
 			BankAccounts=bankAccounts;
 		}
