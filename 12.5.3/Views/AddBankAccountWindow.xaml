@@ -8,12 +8,9 @@
         Title="AddBankAccountWindow" MaxHeight="450" MinHeight="450" MaxWidth="800" MinWidth="800">
     <Grid>
         <TextBlock TextWrapping="Wrap" Margin="200,100,200,290" Text="Выберите тип счёта если у аккаунта нет действующих счетов" TextAlignment="Center"/>
-        <ComboBox x:Name="accountTypeComboBox" Margin="150,140,150,220"/>
-        <TextBox x:Name="amountTextBox" TextWrapping="Wrap" Text="" Margin="200,260,200,120"/>
-        <Button x:Name="okButtonNewBankAccount" Content="OK" Margin="150,350,150,25" Click="OkButtonNewBankAccount_Click"/>
+        <ComboBox x:Name="accountTypeComboBox" ItemsSource="{Binding AccountTypes}" SelectedItem="{Binding AccountType}" Margin="150,140,150,220"/>
+        <TextBox x:Name="amountTextBox" TextWrapping="Wrap" Text="{Binding AmountText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="200,260,200,120"/>
+        <Button x:Name="okButtonNewBankAccount" Content="OK" Margin="150,350,150,25" Command="{Binding OkCommand}"/>
         <TextBlock TextWrapping="Wrap" Margin="200,220,200,170" Text="Введите сумму открытия счёта"/>
-        
-
-
     </Grid>
 </Window>

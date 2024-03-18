@@ -41,7 +41,7 @@ namespace _12._5._3
 			};
 			Changes[accountId].Add(change);
 
-			// Вызываем событие
+			
 			OnActionExecuted?.Invoke(change);
 		}
 	}

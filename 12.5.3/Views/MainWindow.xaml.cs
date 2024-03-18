@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,22 +11,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using _12._5._3.ViewModels;
 
 namespace _12._5._3
 {
 	/// <summary>
-	/// Логика взаимодействия для InputBoxDialog.xaml
+	/// Логика взаимодействия для MainWindow.xaml
 	/// </summary>
-	public partial class InputBoxDialog : Window
+	public partial class MainWindow : Window
 	{
-		public InputBoxDialog()
-		{
-			InitializeComponent();
-		}
-		private void OkButton_Click(object sender, RoutedEventArgs e)
-		{
-			this.DialogResult = true;
-		}
+		
 	}
+	
 }

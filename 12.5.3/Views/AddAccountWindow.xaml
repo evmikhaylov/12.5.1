@@ -8,23 +8,22 @@
         Title="AddAccountWindow" MaxHeight="450" MinHeight="450" MinWidth="800" MaxWidth="800">
     <StackPanel>
         <TextBlock Text="Введите фамилию"/>
-        <TextBox  x:Name="familyNameTextBox" />
+        <TextBox  x:Name="familyNameTextBox" Text="{Binding FamilyName, Mode=TwoWay}" />
         <TextBlock Text="Введите имя"/>
-        <TextBox  x:Name="firstNameTextBox" />
+        <TextBox  x:Name="firstNameTextBox" Text="{Binding FirstName}" />
         <TextBlock Text="Введите отчество"/>
-        <TextBox  x:Name="patronymicTextBox" />
+        <TextBox  x:Name="patronymicTextBox" Text="{Binding Patronymic}" />
         <TextBlock Text="Введите номер телефона"/>
-        <TextBox  x:Name="numberPhoneTextBox" />
+        <TextBox  x:Name="numberPhoneTextBox" Text="{Binding NumberPhone}" />
         <TextBlock Text="Введите серию документа"/>
-        <TextBox  x:Name="serialDocTextBox" />
+        <TextBox  x:Name="serialDocTextBox" Text="{Binding SerialDoc}" />
         <TextBlock Text="Введите номер документа"/>
-        <TextBox  x:Name="NumberDocTextBox" />
+        <TextBox  x:Name="NumberDocTextBox" Text="{Binding NumberDoc}" />
         <TextBlock Text="Введите сумму открытия счёта"/>
-        <TextBox  x:Name="addBalanceTextBox" />
+        <TextBox  x:Name="addBalanceTextBox" Text="{Binding BalanceText}" />
         <TextBox Text="Выберите тип счёта"/>
-        <ComboBox x:Name="accountTypeComboBox"/>
-        <Button Content="OK" Click="OkButtonNewAccount_Click" />
-        
+        <ComboBox x:Name="accountTypeComboBox" ItemsSource="{Binding AccountTypes}" SelectedItem="{Binding AccountType}"/>
+        <Button Content="OK" Command="{Binding AddAccountCommand}" />
     </StackPanel>
 
 </Window>
